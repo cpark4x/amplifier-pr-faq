@@ -113,3 +113,44 @@ Before calling the PR/FAQ done:
 - [ ] Limitations are stated honestly, not buried
 - [ ] Total FAQs between 6 and 10
 - [ ] Document reads in under 3 minutes
+
+## Writing Sharp FAQs
+
+Structure and completeness get you to 7/10. These rules get you to 9.
+
+**Limitations as scannable lists, not paragraphs.** Each limitation gets its own bullet. The reader looking for "can it do X?" should find the answer in a visual scan, not by parsing prose.
+
+```
+# Bad — wall of text
+Three honest ones. First, it only works with Python. Second, complex generics
+sometimes render incorrectly. Third, runtime-generated attributes are invisible.
+
+# Good — scannable
+- **Python only.** No JavaScript, Rust, or polyglot projects.
+- **Complex generics sometimes render incorrectly.** Deeply nested TypeVar
+  bounds and ParamSpec may come out malformed.
+- **Runtime-generated attributes are invisible.** Metaclass magic and dynamic
+  setattr won't appear in output.
+```
+
+**Viability risks with concrete scenarios, not abstract categories.** "Formatting friction" is a category. "You generate a brief and then spend 10 minutes reformatting it for Slack" is a scenario the reader can feel.
+
+```
+# Bad — abstract
+Output formatting may cause friction for users.
+
+# Good — scenario
+You generate a sourced brief in 15 minutes, then spend 10 minutes stripping
+trace references and reformatting it before you can paste it into Slack.
+The time saved on research gets eaten by formatting.
+```
+
+**Features described as outcomes, not capabilities.** Don't say what the thing does — say what the user gets. "Turns findings into narrative" is a capability. "So your board deck has a narrative arc instead of a data dump" is an outcome.
+
+```
+# Bad — capability
+| storyteller | Turns structured findings into narrative |
+
+# Good — outcome
+| storyteller | Board decks and change comms that tell a story instead of dumping data |
+```
