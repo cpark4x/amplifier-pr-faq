@@ -7,21 +7,31 @@ description: Use when creating a PR/FAQ, pitch document, or Working Backwards pr
 
 ## Overview
 
-A PR/FAQ is a one-document pitch: a press release followed by FAQs. Amazon's Working Backwards format adapted for open-source and developer tools. The goal is a document a prospective user reads and knows whether this is for them — in under 3 minutes.
+A PR/FAQ is Amazon's Working Backwards format: a press release followed by FAQs. But the document is not the point — the **thinking** is. The press release format forces you to reason from the customer's perspective and makes half-baked thinking impossible to hide. If you can't write a clear press release, you don't understand the product well enough.
+
+Before writing anything, answer these five questions (from Colin Bryar, ex-Amazon VP):
+
+1. **Who is the customer?**
+2. **What is their problem?**
+3. **What is the solution, in their language?**
+4. **Would they change behavior to adopt it?**
+5. **Is it worth doing?**
+
+If you can't answer all five, the PR/FAQ isn't ready to write.
 
 ## Structure
 
 ```
 # [product name] — PR/FAQ
 
-## Press Release          (2 paragraphs only)
+## Press Release          (one page max — keep it tight)
 ## What the output looks like   (concrete before/after example)
 ## Frequently Asked Questions   (6-10 questions)
 ```
 
 ## Press Release Rules
 
-**Exactly 2 paragraphs.** No more.
+**One page max.** Keep it as short as possible — two tight paragraphs is ideal for developer tools. The constraint is the point: if you can't explain it in a page, you haven't clarified your thinking enough.
 
 **Paragraph 1 — The problem and solution.** One bolded opening sentence that states the value prop. Then: what's broken today, what this does differently, who it's for. End with the audience signal — name the specific situations where this matters (board briefs, vendor evaluations, CI pipelines — whatever applies).
 
@@ -32,7 +42,7 @@ A PR/FAQ is a one-document pitch: a press release followed by FAQs. Amazon's Wor
 - Fake customer quotes (never fabricate testimonials)
 - Feature rosters (that's what FAQs are for)
 - Internal/corporate framing ("we are excited to announce")
-- More than 2 paragraphs
+- Superlatives ("revolutionary", "game-changing", "seamless")
 
 ## The Concrete Example Section
 
@@ -46,9 +56,9 @@ If the product transforms input to output, show both. If it produces artifacts, 
 
 ## FAQ Rules
 
-**6-10 questions. No internal/external split.**
+**6-10 questions. Single list, but include hard questions about viability.**
 
-The internal/external FAQ split is for corporate Amazon documents where stakeholders and customers are different audiences. For open-source, developer tools, and bundles, there's one audience: prospective users. One flat FAQ list.
+Amazon's original format splits FAQs into external (customer) and internal (stakeholder). For open-source and developer tools, the audience is usually the same — but the *function* of the internal FAQ matters: it forces you to confront feasibility, risks, and reasons the product might fail. Keep that rigor even without the formal split.
 
 **Required FAQs (always include these):**
 
@@ -58,10 +68,17 @@ The internal/external FAQ split is for corporate Amazon documents where stakehol
 4. **How is this different from [existing approach]?** — Honest comparison, not marketing
 5. **What are the limitations?** — Honest. Name them. This builds credibility
 
+**Hard questions (include at least one):**
+
+These replace the function of Amazon's internal FAQ — they force you to address viability, not just desirability:
+
+- What would cause this to fail?
+- What's the biggest risk or tradeoff?
+- What can't it do that users will expect it to?
+- Is it slow? Does it cost more? Why is that worth it?
+
 **Optional FAQs (include when relevant):**
 
-- Is it slow? (if it's not instant)
-- Does it cost more? (if it consumes paid resources)
 - Can I use parts independently? (if it's composable)
 - What happens when it fails? (if failure modes matter)
 
@@ -69,6 +86,7 @@ The internal/external FAQ split is for corporate Amazon documents where stakehol
 - More than 10 FAQs (trim or merge — the reader won't finish)
 - FAQs that repeat press release content verbatim
 - Rhetorical questions nobody would actually ask
+- Only easy questions — no hard ones about viability or risks
 - Hiding limitations in the last FAQ hoping nobody reads that far
 
 ## Tone
@@ -77,7 +95,6 @@ The internal/external FAQ split is for corporate Amazon documents where stakehol
 
 - State tradeoffs plainly: "Yes, it's slower. Here's why and when that's worth it."
 - Acknowledge limitations early, not buried at the end
-- No superlatives ("revolutionary", "game-changing", "seamless")
 - No fake excitement ("we're thrilled to announce")
 - Use the product's actual name as users will encounter it (CLI name, package name — not a title-cased marketing name unless that's the real name)
 
@@ -85,13 +102,14 @@ The internal/external FAQ split is for corporate Amazon documents where stakehol
 
 Before calling the PR/FAQ done:
 
-- [ ] Press release is exactly 2 paragraphs
+- [ ] Five questions answered (customer, problem, solution, behavior change, worth doing)
+- [ ] Press release fits on one page
 - [ ] No fake quotes or testimonials
 - [ ] No dateline or corporate framing
 - [ ] Concrete example section shows real output
 - [ ] Install command is copy-pasteable
 - [ ] "Try it in 5 minutes" FAQ exists
+- [ ] At least one hard question about viability/risks
 - [ ] Limitations are stated honestly, not buried
 - [ ] Total FAQs between 6 and 10
-- [ ] No internal/external FAQ split
 - [ ] Document reads in under 3 minutes
